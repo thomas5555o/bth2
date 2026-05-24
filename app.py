@@ -212,7 +212,11 @@ if st.button("🎲 Lancer la roue"):
 
     for i, color in enumerate(colors):
 
-        angle = (i * angle_per_segment) + (angle_per_segment / 2)
+        angle = (
+        (i * angle_per_segment)
+        + (angle_per_segment / 2)
+        - 90
+    )
 
         rad = math.radians(angle)
 
