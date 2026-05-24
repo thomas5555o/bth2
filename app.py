@@ -199,6 +199,37 @@ if st.button("🎲 Lancer la roue"):
     # =========================
 
     selected_color = random.choice(colors)
+    if selected_color ="Rouge tomate": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Orange carotte": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Jaune citron": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Jaune moutarde": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Vert avocat": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Vert menthe": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Vert pistache": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Marron chocolat": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Beige café latte": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Violet raisin": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Blanc crème": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Noir réglisse": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Bleu myrtille": 
+        text_selected_color="BLABLA1"
+    if selected_color ="Rouge bordeaux": 
+        text_selected_color="BLABLA1"
+
+        
+        
 
     winner_index = colors.index(
         selected_color
@@ -466,7 +497,7 @@ if st.button("🎲 Lancer la roue"):
         )
 
         st.success(
-            f"Couleur attribuée : {selected_color}"
+            f"Couleur attribuée : {selected_color},{text_selected_color}"
         )
 
     except Exception as e:
