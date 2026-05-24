@@ -144,7 +144,7 @@ if st.button("🎲 Lancer la roue"):
 
     selected_color = random.choice(colors)
 
-    winner_index = colors.index(selected_color)
+    winner_index = total_segments - 1 - colors.index(selected_color)
 
     total_segments = len(colors)
 
