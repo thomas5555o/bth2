@@ -23,7 +23,7 @@ SMTP_PORT = 587
 # =========================
 
 st.set_page_config(
-    page_title="Roue des couleurs",
+    page_title="Anniversaire Laora",
     layout="centered"
 )
 
@@ -95,21 +95,21 @@ email = st.text_input("Email")
 if st.button("🔄 Réinitialiser les couleurs"):
 
     default_colors = [
-        "Rouge",
-        "Bleu",
-        "Vert",
-        "Jaune",
-        "Orange",
-        "Violet",
-        "Rose",
-        "Marron",
-        "Noir",
-        "Blanc",
-        "Gris",
-        "Turquoise",
-        "Beige",
-        "Bordeaux",
-        "Cyan"
+        "Rouge tomate",
+        "Orange carotte",
+        "Jaune citron",
+        "Jaune moutarde",
+        "Vert avocat",
+        "Vert menthe",
+        "Vert pistache",
+        "Marron chocolat",
+        "Beige café latte",
+        "Rose fraise",
+        "Violet raisin",
+        "Blanc crème",
+        "Noir réglisse",
+        "Bleu myrtille",
+        "Rouge bordeaux"
     ]
 
     save_colors(default_colors)
@@ -168,21 +168,21 @@ if st.button("🎲 Lancer la roue"):
     # =========================
 
     wheel_colors = [
-        "#ff4d4d",
-        "#4d79ff",
-        "#33cc33",
-        "#ffd633",
-        "#ff944d",
-        "#cc66ff",
-        "#ff66b3",
-        "#8d6e63",
-        "#808080",
-        "#66ffff",
-        "#cddc39",
-        "#ffb300",
-        "#009688",
-        "#3f51b5",
-        "#e91e63"
+        "#D62828",
+        "#F77F00",
+        "#F4D35E",
+        "#D4A017",
+        "#6A994E",
+        "#2EC4B6",
+        "#93C572",
+        "#5C3A21",
+        "#C8A27A",
+        "#FF4F79",
+        "#6F2DA8",
+        "#FFF4E6",
+        "#1C1C1C",
+        "#4F6DDE",
+        "#7B112C"
     ]
 
     # =========================
@@ -237,7 +237,7 @@ if st.button("🎲 Lancer la roue"):
                 z-index:50;
             "
         >
-            {color}
+
         </div>
         """
 
@@ -380,7 +380,7 @@ if st.button("🎲 Lancer la roue"):
         send_email(email, selected_color)
 
         st.success(
-            f"Couleur attribuée et envoyée : {selected_color}"
+            f"Couleur attribuée : {selected_color}"
         )
 
     except Exception as e:
