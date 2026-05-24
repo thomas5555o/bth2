@@ -144,10 +144,10 @@ if st.button("🎲 Lancer la roue"):
 
     selected_color = random.choice(colors)
 
-    winner_index = total_segments - 1 - colors.index(selected_color)
+    
 
     total_segments = len(colors)
-
+    winner_index = total_segments - 1 - colors.index(selected_color)
     angle_per_segment = 360 / total_segments
 
     # =========================
