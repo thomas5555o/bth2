@@ -237,6 +237,7 @@ if st.button("🎲 Lancer la roue"):
                 z-index:50;
             "
         >
+            {color}
 
         </div>
         """
