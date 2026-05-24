@@ -32,15 +32,32 @@ st.set_page_config(
 # =========================
 
 def load_colors():
-    with open("colors.json", "r", encoding="utf-8") as f:
+
+    with open(
+        "colors.json",
+        "r",
+        encoding="utf-8"
+    ) as f:
+
         return json.load(f)
 
 def save_colors(colors):
-    with open("colors.json", "w", encoding="utf-8") as f:
-        json.dump(colors, f, ensure_ascii=False, indent=4)
+
+    with open(
+        "colors.json",
+        "w",
+        encoding="utf-8"
+    ) as f:
+
+        json.dump(
+            colors,
+            f,
+            ensure_ascii=False,
+            indent=4
+        )
 
 # =========================
-# ENVOI EMAIL
+# EMAIL
 # =========================
 
 def send_email(receiver_email, color):
@@ -63,9 +80,14 @@ Merci !
     msg["To"] = receiver_email
     msg["Subject"] = subject
 
-    msg.attach(MIMEText(body, "plain"))
+    msg.attach(
+        MIMEText(body, "plain")
+    )
 
-    server = smtplib.SMTP(SMTP_SERVER, SMTP_PORT)
+    server = smtplib.SMTP(
+        SMTP_SERVER,
+        SMTP_PORT
+    )
 
     server.starttls()
 
@@ -84,7 +106,9 @@ Merci !
 
 st.title("🎡 Roue des couleurs")
 
-st.write("Entrez votre email puis lancez la roue.")
+st.write(
+    "Entrez votre email puis lancez la roue."
+)
 
 email = st.text_input("Email")
 
@@ -114,7 +138,9 @@ if st.button("🔄 Réinitialiser les couleurs"):
 
     save_colors(default_colors)
 
-    st.success("Couleurs réinitialisées.")
+    st.success(
+        "Couleurs réinitialisées."
+    )
 
     st.rerun()
 
@@ -125,8 +151,34 @@ if st.button("🔄 Réinitialiser les couleurs"):
 colors = load_colors()
 
 if len(colors) == 0:
-    st.error("Toutes les couleurs ont été attribuées.")
+
+    st.error(
+        "Toutes les couleurs ont été attribuées."
+    )
+
     st.stop()
+
+# =========================
+# COULEURS VISUELLES
+# =========================
+
+wheel_colors_map = {
+    "Rouge tomate": "#D62828",
+    "Orange carotte": "#F77F00",
+    "Jaune citron": "#F4D35E",
+    "Jaune moutarde": "#D4A017",
+    "Vert avocat": "#6A994E",
+    "Vert menthe": "#2EC4B6",
+    "Vert pistache": "#93C572",
+    "Marron chocolat": "#5C3A21",
+    "Beige café latte": "#C8A27A",
+    "Rose fraise": "#FF4F79",
+    "Violet raisin": "#6F2DA8",
+    "Blanc crème": "#FFF4E6",
+    "Noir réglisse": "#1C1C1C",
+    "Bleu myrtille": "#4F6DDE",
+    "Rouge bordeaux": "#7B112C"
+}
 
 # =========================
 # BOUTON
@@ -135,7 +187,11 @@ if len(colors) == 0:
 if st.button("🎲 Lancer la roue"):
 
     if email == "":
-        st.error("Veuillez entrer un email.")
+
+        st.error(
+            "Veuillez entrer un email."
+        )
+
         st.stop()
 
     # =========================
@@ -144,46 +200,30 @@ if st.button("🎲 Lancer la roue"):
 
     selected_color = random.choice(colors)
 
-    
+    winner_index = colors.index(
+        selected_color
+    )
 
     total_segments = len(colors)
-    winner_index = total_segments - 1 - colors.index(selected_color)
+
     angle_per_segment = 360 / total_segments
 
     # =========================
     # ANGLE FINAL
     # =========================
+    # 0° CSS = haut
+    # la flèche est en haut
+    # on tourne la roue dans le sens horaire
+    # donc on inverse l’angle
 
-    target_angle = (
-        3600 +
-        (
-            270
-            - (winner_index * angle_per_segment)
-            - (angle_per_segment / 2)
-        )
+    center_angle = (
+        winner_index * angle_per_segment
+        + angle_per_segment / 2
     )
 
-    # =========================
-    # COULEURS VISUELLES
-    # =========================
-
-    wheel_colors = [
-        "#D62828",
-        "#F77F00",
-        "#F4D35E",
-        "#D4A017",
-        "#6A994E",
-        "#2EC4B6",
-        "#93C572",
-        "#5C3A21",
-        "#C8A27A",
-        "#FF4F79",
-        "#6F2DA8",
-        "#FFF4E6",
-        "#1C1C1C",
-        "#4F6DDE",
-        "#7B112C"
-    ]
+    target_angle = (
+        3600 - center_angle
+    )
 
     # =========================
     # SEGMENTS
@@ -191,16 +231,22 @@ if st.button("🎲 Lancer la roue"):
 
     gradient_parts = []
 
-    for i in range(total_segments):
+    for i, color_name in enumerate(colors):
 
         start = i * angle_per_segment
         end = (i + 1) * angle_per_segment
 
         gradient_parts.append(
-            f"{wheel_colors[i % len(wheel_colors)]} {start}deg {end}deg"
+            f"""
+            {wheel_colors_map[color_name]}
+            {start}deg
+            {end}deg
+            """
         )
 
-    gradient_css = ", ".join(gradient_parts)
+    gradient_css = ",".join(
+        gradient_parts
+    )
 
     # =========================
     # LABELS
@@ -212,13 +258,24 @@ if st.button("🎲 Lancer la roue"):
 
     for i, color in enumerate(colors):
 
+        # centre du segment
         angle = (
-        (i * angle_per_segment)
-        + (angle_per_segment / 2)
-        - 90
-    )
+            i * angle_per_segment
+            + angle_per_segment / 2
+        )
 
-        rad = math.radians(angle)
+        # conversion trigonométrique
+        # CSS :
+        # 0° = haut
+        #
+        # trigonométrie :
+        # 0° = droite
+        #
+        # donc -90°
+
+        rad = math.radians(
+            angle - 90
+        )
 
         x = 250 + radius * math.cos(rad)
         y = 250 + radius * math.sin(rad)
@@ -227,22 +284,26 @@ if st.button("🎲 Lancer la roue"):
         <div
             style="
                 position:absolute;
+
                 left:{x}px;
                 top:{y}px;
 
+                width:140px;
+
+                text-align:center;
+
                 transform:
                     translate(-50%, -50%)
-                    rotate({angle + 90}deg);
+                    rotate({angle}deg);
 
                 font-weight:bold;
-                font-size:16px;
+                font-size:15px;
                 color:black;
 
                 z-index:50;
             "
         >
             {color}
-
         </div>
         """
 
@@ -265,9 +326,12 @@ if st.button("🎲 Lancer la roue"):
     }}
 
     .container {{
+
         position:relative;
+
         width:500px;
         height:500px;
+
         margin:auto;
     }}
 
@@ -289,7 +353,15 @@ if st.button("🎲 Lancer la roue"):
             {gradient_css}
         );
 
-        animation: spin 6s cubic-bezier(0.17,0.67,0.12,0.99) forwards;
+        animation:
+            spin 6s
+            cubic-bezier(
+                0.17,
+                0.67,
+                0.12,
+                0.99
+            )
+            forwards;
     }}
 
     @keyframes spin {{
@@ -299,7 +371,8 @@ if st.button("🎲 Lancer la roue"):
         }}
 
         to {{
-            transform: rotate({target_angle}deg);
+            transform:
+                rotate({target_angle}deg);
         }}
     }}
 
@@ -331,7 +404,9 @@ if st.button("🎲 Lancer la roue"):
 
         opacity:0;
 
-        animation: showResult 1s forwards;
+        animation:
+            showResult 1s forwards;
+
         animation-delay:6s;
     }}
 
@@ -374,7 +449,10 @@ if st.button("🎲 Lancer la roue"):
 
     """
 
-    components.html(html_code, height=750)
+    components.html(
+        html_code,
+        height=750
+    )
 
     # =========================
     # EMAIL
@@ -382,7 +460,10 @@ if st.button("🎲 Lancer la roue"):
 
     try:
 
-        send_email(email, selected_color)
+        send_email(
+            email,
+            selected_color
+        )
 
         st.success(
             f"Couleur attribuée : {selected_color}"
@@ -390,7 +471,9 @@ if st.button("🎲 Lancer la roue"):
 
     except Exception as e:
 
-        st.error(f"Erreur email : {e}")
+        st.error(
+            f"Erreur email : {e}"
+        )
 
     # =========================
     # SUPPRESSION DEFINITIVE
