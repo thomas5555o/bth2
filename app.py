@@ -69,9 +69,7 @@ Bonjour,
 
 Votre couleur attribuée est :
 
-{color}.
-
-{text_selected_colors}
+{color}
 
 Merci !
 
