@@ -430,7 +430,7 @@ if st.button("🎲 Lancer la roue"):
 
         margin-top:30px;
 
-        font-size:48px;
+        font-size:25px;
         font-weight:bold;
 
         color:green;
