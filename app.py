@@ -9,7 +9,7 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
 # ========================= 
-# CONFIG EMAIL 
+# CONFIG EMAIL   
 # =========================
 
 EMAIL_SENDER = "laaaaaora30ans@gmail.com"
