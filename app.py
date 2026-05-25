@@ -12,10 +12,10 @@ from email.mime.multipart import MIMEMultipart
 # CONFIG EMAIL
 # =========================
 
-EMAIL_SENDER = '''erfmdl095@gmail.com'''
-EMAIL_PASSWORD = '''yrneeqbjdjtvuail'''
+EMAIL_SENDER = "erfmdl095@gmail.com"
+EMAIL_PASSWORD = "yrneeqbjdjtvuail"
 
-SMTP_SERVER = '''smtp.gmail.com'''
+SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
 
 # =========================
@@ -23,8 +23,8 @@ SMTP_PORT = 587
 # =========================
 
 st.set_page_config(
-    page_title='''Anniversaire Laora''',
-    layout='''centered'''
+    page_title="Anniversaire Laora",
+    layout="centered"
 )
 
 # =========================
@@ -34,9 +34,9 @@ st.set_page_config(
 def load_colors():
 
     with open(
-        '''colors.json''',
-        '''r''',
-        encoding='''utf-8'''
+        "colors.json",
+        "r",
+        encoding="utf-8"
     ) as f:
 
         return json.load(f)
@@ -44,9 +44,9 @@ def load_colors():
 def save_colors(colors):
 
     with open(
-        '''colors.json''',
-        '''w''',
-        encoding='''utf-8'''
+        "colors.json",
+        "w",
+        encoding="utf-8"
     ) as f:
 
         json.dump(
@@ -62,9 +62,9 @@ def save_colors(colors):
 
 def send_email(receiver_email, color):
 
-    subject = '''Votre couleur'''
+    subject = "Votre couleur"
 
-    body = f'''''''''
+    body = f"""
 Bonjour,
 
 Votre couleur attribuée est :
@@ -72,16 +72,16 @@ Votre couleur attribuée est :
 {color}
 
 Merci !
-'''''''''
+"""
 
     msg = MIMEMultipart()
 
-    msg['''From'''] = EMAIL_SENDER
-    msg['''To'''] = receiver_email
-    msg['''Subject'''] = subject
+    msg["From"] = EMAIL_SENDER
+    msg["To"] = receiver_email
+    msg["Subject"] = subject
 
     msg.attach(
-        MIMEText(body, '''plain''')
+        MIMEText(body, "plain")
     )
 
     server = smtplib.SMTP(
@@ -104,42 +104,42 @@ Merci !
 # TITRE
 # =========================
 
-st.title('''🎡 Roue des couleurs''')
+st.title("🎡 Roue des couleurs")
  
 st.write(
-    '''Entrez votre email puis lancez la roue.'''
+    "Entrez votre email puis lancez la roue."
 )
 
-email = st.text_input('''Email''')
+email = st.text_input("Email")
 
 # =========================
 # RESET
 # =========================
 
-if st.button('''🔄 Réinitialiser les couleurs'''):
+if st.button("🔄 Réinitialiser les couleurs"):
 
     default_colors = [
-        '''Rouge''',
-        '''Bleu''',
-        '''Vert''',
-        '''Jaune''',
-        '''Rose''',
-        '''Orange''',
-        '''Violet''',
-        '''Noir''',
-        '''Blanc''',
-        '''Chocolat''',
-        '''Beige''',
-        '''Gris''',
-        '''Turquoise''',
-        '''Bordeaux''',
-        '''Doré'''
+        "Rouge",
+        "Bleu",
+        "Vert",
+        "Jaune",
+        "Rose",
+        "Orange",
+        "Violet",
+        "Noir",
+        "Blanc",
+        "Chocolat",
+        "Beige",
+        "Gris",
+        "Turquoise",
+        "Bordeaux",
+        "Doré"
     ]
 
     save_colors(default_colors)
 
     st.success(
-        '''Couleurs réinitialisées.'''
+        "Couleurs réinitialisées."
     )
 
     st.rerun()
@@ -153,7 +153,7 @@ colors = load_colors()
 if len(colors) == 0:
 
     st.error(
-        '''Toutes les couleurs ont été attribuées.'''
+        "Toutes les couleurs ont été attribuées."
     )
 
     st.stop()
@@ -163,33 +163,33 @@ if len(colors) == 0:
 # =========================
 
 wheel_colors_map = {
-    '''Rouge''': '''#F54927''',
-    '''Bleu''': '''#2B8DED''',
-    '''Vert''': '''#52ED2B''',
-    '''Jaune''': '''#EDEA2B''',
-    '''Rose''': '''#FF0F77''',
-    '''Orange''': '''#FF830F''',
-    '''Violet''': '''#B50085''',
-    '''Noir''': '''#080708''',
-    '''Blanc''': '''#FFFFFF''',
-    '''Chocolat''': '''#803A05''',
-    '''Beige''': '''#E8D5C8''',
-    '''Gris''': '''#A6A6A6''',
-    '''Turquoise''': '''#05EAF2''',
-    '''Bordeaux''': '''#A10630''',
-    '''Doré''': '''#FFDB6B'''
+    "Rouge": "#F54927",
+    "Bleu": "#2B8DED",
+    "Vert": "#52ED2B",
+    "Jaune": "#EDEA2B",
+    "Rose": "#FF0F77",
+    "Orange": "#FF830F",
+    "Violet": "#B50085",
+    "Noir": "#080708",
+    "Blanc": "#FFFFFF",
+    "Chocolat": "#803A05",
+    "Beige": "#E8D5C8",
+    "Gris": "#A6A6A6",
+    "Turquoise": "#05EAF2",
+    "Bordeaux": "#A10630",
+    "Doré": "#FFDB6B"
 }
 
 # =========================
 # BOUTON
 # =========================
 
-if st.button('''🎲 Lancer la roue'''):
+if st.button("🎲 Lancer la roue"):
 
-    if email == '''''':
+    if email == "":
 
         st.error(
-            '''Veuillez entrer un email.'''
+            "Veuillez entrer un email."
         )
 
         st.stop()
@@ -270,14 +270,14 @@ if st.button('''🎲 Lancer la roue'''):
         end = (i + 1) * angle_per_segment
 
         gradient_parts.append(
-            f'''''''''
+            f"""
             {wheel_colors_map[color_name]}
             {start}deg
             {end}deg
-            '''''''''
+            """
         )
 
-    gradient_css = ''','''.join(
+    gradient_css = ",".join(
         gradient_parts
     )
 
@@ -285,7 +285,7 @@ if st.button('''🎲 Lancer la roue'''):
     # LABELS
     # =========================
 
-    labels_html = ''''''
+    labels_html = ""
 
     radius = 170
 
@@ -313,9 +313,9 @@ if st.button('''🎲 Lancer la roue'''):
         x = 250 + radius * math.cos(rad)
         y = 250 + radius * math.sin(rad)
 
-        labels_html += f'''''''''
+        labels_html += f"""
         <div
-            style='''
+            style="
                 position:absolute;
 
                 left:{x}px;
@@ -334,17 +334,17 @@ if st.button('''🎲 Lancer la roue'''):
                 color:black;
 
                 z-index:50;
-            '''
+            "
         >
             {color}
         </div>
-        '''''''''
+        """
 
     # =========================
     # HTML
     # =========================
 
-    html_code = f'''''''''
+    html_code = f"""
 
     <html>
 
@@ -460,11 +460,11 @@ if st.button('''🎲 Lancer la roue'''):
 
     <body>
 
-    <div class='''container'''>
+    <div class="container">
 
-        <div class='''pointer'''></div>
+        <div class="pointer"></div>
 
-        <div class='''wheel'''>
+        <div class="wheel">
 
             {labels_html}
 
@@ -472,15 +472,15 @@ if st.button('''🎲 Lancer la roue'''):
 
     </div>
 
-    <div class='''result'''>
-        🎉 '''Verdict : '''{selected_color}
+    <div class="result">
+        🎉 "Verdict : "{selected_color}
     </div>
 
     </body>
 
     </html>
 
-    '''''''''
+    """
 
     components.html(
         html_code,
@@ -499,13 +499,13 @@ if st.button('''🎲 Lancer la roue'''):
         )
 
         st.success(
-            f'''{selected_color},{text_selected_color}'''
+            f"{selected_color},{text_selected_color}"
         )
 
     except Exception as e:
 
         st.error(
-            f'''Erreur email : {e}'''
+            f"Erreur email : {e}"
         )
 
     # =========================
