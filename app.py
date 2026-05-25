@@ -116,33 +116,7 @@ email = st.text_input("Email")
 # RESET
 # =========================
 
-if st.button("🔄 Réinitialiser les couleurs"):
 
-    default_colors = [
-        "Rouge",
-        "Bleu",
-        "Vert",
-        "Jaune",
-        "Rose",
-        "Orange",
-        "Violet",
-        "Noir",
-        "Blanc",
-        "Chocolat",
-        "Beige",
-        "Gris",
-        "Turquoise",
-        "Bordeaux",
-        "Doré"
-    ]
-
-    save_colors(default_colors)
-
-    st.success(
-        "Couleurs réinitialisées."
-    )
-
-    st.rerun()
 
 # =========================
 # CHARGEMENT
