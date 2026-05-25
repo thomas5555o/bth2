@@ -105,7 +105,7 @@ Merci !
 # =========================
 
 st.title("🎡 Roue des couleurs")
-
+ 
 st.write(
     "Entrez votre email puis lancez la roue."
 )
