@@ -109,7 +109,7 @@ Laura
 st.title("🎡 Roue des couleurs")
  
 st.write(
-    "Entrez votre email puis lancez la roue.(Un seul lancé par couple!)"
+    "Entrez votre email puis lancez la roue.(UN SEUL LANCER PAR COUPLE)"
 )
 
 email = st.text_input("Email")
