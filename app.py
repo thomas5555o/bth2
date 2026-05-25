@@ -119,21 +119,21 @@ email = st.text_input("Email")
 if st.button("🔄 Réinitialiser les couleurs"):
 
     default_colors = [
-        "Rouge tomate",
-        "Orange carotte",
-        "Jaune citron",
-        "Jaune moutarde",
-        "Vert avocat",
-        "Vert menthe",
-        "Vert pistache",
-        "Marron chocolat",
-        "Beige café latte",
-        "Rose fraise",
-        "Violet raisin",
-        "Blanc crème",
-        "Noir réglisse",
-        "Bleu myrtille",
-        "Rouge bordeaux"
+        "Rouge",
+        "Bleu",
+        "Vert",
+        "Jaune",
+        "Rose",
+        "Orange",
+        "Violet",
+        "Noir",
+        "Blanc",
+        "Chocolat",
+        "Beige",
+        "Gris",
+        "Turquoise",
+        "Bordeaux",
+        "Doré"
     ]
 
     save_colors(default_colors)
@@ -163,21 +163,21 @@ if len(colors) == 0:
 # =========================
 
 wheel_colors_map = {
-    "Rouge tomate": "#D62828",
-    "Orange carotte": "#F77F00",
-    "Jaune citron": "#F4D35E",
-    "Jaune moutarde": "#D4A017",
-    "Vert avocat": "#6A994E",
-    "Vert menthe": "#2EC4B6",
-    "Vert pistache": "#93C572",
-    "Marron chocolat": "#5C3A21",
-    "Beige café latte": "#C8A27A",
-    "Rose fraise": "#FF4F79",
-    "Violet raisin": "#6F2DA8",
-    "Blanc crème": "#FFF4E6",
-    "Noir réglisse": "#1C1C1C",
-    "Bleu myrtille": "#4F6DDE",
-    "Rouge bordeaux": "#7B112C"
+    "Rouge": "#F54927",
+    "Bleu": "#2B8DED",
+    "Vert": "#52ED2B",
+    "Jaune": "#EDEA2B",
+    "Rose": "#FF0F77",
+    "Orange": "#FF830F",
+    "Violet": "#B50085",
+    "Noir": "#080708",
+    "Blanc": "#FFFFFF",
+    "Chocolat": "#803A05",
+    "Beige": "#E8D5C8",
+    "Gris": "#A6A6A6",
+    "Turquoise": "#05EAF2",
+    "Bordeaux": "#A10630",
+    "Doré": "#FFDB6B"
 }
 
 # =========================
@@ -199,34 +199,36 @@ if st.button("🎲 Lancer la roue"):
     # =========================
 
     selected_color = random.choice(colors)
-    if selected_color =="Rouge tomate": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Orange carotte": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Jaune citron": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Jaune moutarde": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Vert avocat": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Vert menthe": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Vert pistache": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Marron chocolat": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Beige café latte": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Violet raisin": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Blanc crème": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Noir réglisse": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Bleu myrtille": 
-        text_selected_color="BLABLA1"
-    if selected_color =="Rouge bordeaux": 
-        text_selected_color="BLABLA1"
+    if selected_color =="Rouge": 
+        text_selected_color="Bravo! Il te sera impossible de passer inaperçu. Prépare toi à attirer l'attention toute la soirée."
+    if selected_color =="Bleu": 
+        text_selected_color="Bravo! Tu viens officiellement d'être accepté au village des Schtroumpfs"
+    if selected_color =="Vert": 
+        text_selected_color="Chanceux(se). Tu es désormais responsable des bonnes vibes de la soirée."
+    if selected_color =="Jaune": 
+        text_selected_color="Ta mission : être plus lumineux(se) que les lumières de la salle."
+    if selected_color =="Rose": 
+        text_selected_color="Le Rose t'a choisi. Cette couleur exige un minimun de glamour. Prépare toi!"
+    if selected_color =="Orange": 
+        text_selected_color="Bravo. Energie et bonne humeur. Tu es officiellement chargé de réveiller la piste de danse."
+    if selected_color =="Violet": 
+        text_selected_color="Ouîe. Sacré Challenge. Epate-moi!"
+    if selected_color =="Noir": 
+        text_selected_color="Noir c'est Noir, il n'y a plus d'espoir. Tu seras clairement le plus chic de la soirée ... J'espère pour toi."
+    if selected_color =="Blanc": 
+        text_selected_color="Maintenant le vrai défi : Ne pas te salir de la soirée."
+    if selected_color =="Chocolat": 
+        text_selected_color="Impossible de ne pas t'aimer. Je te laisse relever le défi!"
+    if selected_color =="Beige": 
+        text_selected_color="Plus qu'à être une crème toute la soirée (surtout avec moi)"
+    if selected_color =="Gris": 
+        text_selected_color="Bravo! Tu es officiellement entre le noir trop sérieux et le blanc trop risqué."
+    if selected_color =="Turquoise": 
+        text_selected_color="Ambiance vacances au bord de la piscine même si on est juste dans un salon."
+    if selected_color =="Bordeaux": 
+        text_selected_color="Prouve moi que tu es comme le vin, que tu te bonifies"
+    if selected_color =="Doré": 
+        text_selected_color="Ton objectif : Briller plus que la déco. On saura que tu auras tout essayé."
 
         
         
@@ -471,7 +473,7 @@ if st.button("🎲 Lancer la roue"):
     </div>
 
     <div class="result">
-        🎉 "ahahahahahaha"{selected_color}
+        🎉 "Verdict : "{selected_color}
     </div>
 
     </body>
