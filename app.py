@@ -473,7 +473,7 @@ if st.button("🎲 Lancer la roue"):
     </div>
 
     <div class="result">
-        🎉 "Verdict : "{selected_color}
+        🎉 Verdict : {selected_color},{text_selected_color}
     </div>
 
     </body>
