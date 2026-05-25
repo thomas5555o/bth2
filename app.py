@@ -12,8 +12,8 @@ from email.mime.multipart import MIMEMultipart
 # CONFIG EMAIL
 # =========================
 
-EMAIL_SENDER = "erfmdl095@gmail.com"
-EMAIL_PASSWORD = "yrneeqbjdjtvuail"
+EMAIL_SENDER = "laaaaaora30ans@gmail.com"
+EMAIL_PASSWORD = "ryiodbeucswsoduu"
 
 SMTP_SERVER = "smtp.gmail.com"
 SMTP_PORT = 587
