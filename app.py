@@ -499,7 +499,7 @@ if st.button("🎲 Lancer la roue"):
         )
 
         st.success(
-            f"{selected_color},\n"
+            f"{selected_color}",\n
             {text_selected_color}
         )
 
