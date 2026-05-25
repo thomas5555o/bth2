@@ -471,7 +471,7 @@ if st.button("🎲 Lancer la roue"):
     </div>
 
     <div class="result">
-        🎉 "ahahahahahaha",{selected_color}
+        🎉 "ahahahahahaha"{selected_color}
     </div>
 
     </body>
