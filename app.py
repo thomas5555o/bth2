@@ -70,9 +70,12 @@ Bonjour,
 Votre couleur attribuée est :
 
 {color}.
+
 {text_selected_colors}
 
 Merci !
+
+Laura
 """
 
     msg = MIMEMultipart()
