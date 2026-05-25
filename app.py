@@ -212,7 +212,7 @@ if st.button("🎲 Lancer la roue"):
     if selected_color =="Orange": 
         text_selected_color="Bravo. Energie et bonne humeur. Tu es officiellement chargé de réveiller la piste de danse."
     if selected_color =="Violet": 
-        text_selected_color="Ouîe. Sacré Challenge. Epate-moi!"
+        text_selected_color="Sacré Challenge. Epate-moi!"
     if selected_color =="Noir": 
         text_selected_color="Noir c'est Noir, il n'y a plus d'espoir. Tu seras clairement le plus chic de la soirée ... J'espère pour toi."
     if selected_color =="Blanc": 
@@ -473,7 +473,7 @@ if st.button("🎲 Lancer la roue"):
     </div>
 
     <div class="result">
-        🎉 Verdict : {selected_color},{text_selected_color}
+        🎉 Verdict : {selected_color},\n {text_selected_color}
     </div>
 
     </body>
@@ -499,7 +499,7 @@ if st.button("🎲 Lancer la roue"):
         )
 
         st.success(
-            f"{selected_color}, \n,{text_selected_color} "
+            f"{selected_color} "
        
         )
 
