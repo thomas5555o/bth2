@@ -499,8 +499,9 @@ if st.button("🎲 Lancer la roue"):
         )
 
         st.success(
-            f"{selected_color}",\n
-            {text_selected_color}
+            f"{selected_color}"
+            f"\n"
+            f"{text_selected_color}"
         )
 
     except Exception as e:
