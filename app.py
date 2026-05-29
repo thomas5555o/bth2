@@ -142,11 +142,7 @@ wheel_colors_map = {
     "Bleu": "#2B8DED",
     "Jaune": "#EDEA2B",
     "Rose": "#FF0F77",
-    "Violet": "#B50085",
-    "Blanc": "#FFFFFF",
     "Beige": "#E8D5C8",
-    "Turquoise": "#05EAF2",
-    "Bordeaux": "#A10630",
     "Doré": "#FFDB6B"
 }
 
@@ -175,16 +171,8 @@ if st.button("🎲 Lancer la roue"):
         text_selected_color="Ta mission : être plus lumineux(se) que les lumières de la salle."
     if selected_color =="Rose": 
         text_selected_color="Le Rose t'a choisi. Cette couleur exige un minimun de glamour. Prépare toi!"
-    if selected_color =="Violet": 
-        text_selected_color="Sacré Challenge. Epate-moi!"
-    if selected_color =="Blanc": 
-        text_selected_color="Maintenant le vrai défi : Ne pas te salir de la soirée."
     if selected_color =="Beige": 
         text_selected_color="Plus qu'à être une crème toute la soirée (surtout avec moi)"
-    if selected_color =="Turquoise": 
-        text_selected_color="Ambiance vacances au bord de la piscine même si on est juste dans un salon."
-    if selected_color =="Bordeaux": 
-        text_selected_color="Prouve moi que tu es comme le vin, que tu te bonifies"
     if selected_color =="Doré": 
         text_selected_color="Ton objectif : Briller plus que la déco. On saura que tu auras tout essayé."
 
